@@ -24,7 +24,7 @@ namespace TaskBook
         //Methods
         public void PrintInfo()
         {
-            Console.WriteLine($"Nimi: {Title}\nKirjoittaja: {Author}\nId: {Id}\nHinta: {Price}\n");
+            Console.WriteLine($"Nimi: {Title}\nKirjoittaja: {Author}\nId: {Id}\nHinta: {Price:C}\n");
         }
 
         public string CompareBook(Book book)
