@@ -10,22 +10,30 @@ namespace TaskBook
         public string Title;
         public string Author;
         public int Id;
-        public int Price;
+        public double Price;
 
         //Constructor
-        public Book(string Title, string Author, int Id, int Price)
+        public Book(string title, string author, int id, double price)
         {
-            Title = Title;
-            Author = Author;
-            Id = Id;
-            Price = Price;
+            Title = title;
+            Author = author;
+            Id = id;
+            Price = price;
         }
 
         //Methods
         public void PrintInfo()
         {
-            Console.WriteLine($"Nimi: {Title}\nKirjoittaja: {Author}\nId: {Id}\nHinta{Price}");
+            Console.WriteLine($"Nimi: {Title}\nKirjoittaja: {Author}\nId: {Id}\nHinta: {Price}\n");
         }
 
+        public string CompareBook(Book book)
+        {
+            if (this.Price > book.Price)
+                return ($"{this.Title} on kalliimpi kuin {book.Title} kirja\n");
+            else
+                return ($"{book.Title} on kalliimpi kuin {this.Title} kirja\n");
+        }
     }
+
 }
