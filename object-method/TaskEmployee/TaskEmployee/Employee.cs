@@ -10,10 +10,10 @@ namespace TaskEmployee
         public string Name;
         public int Id;
         public string Position;
-        public string Salary;
+        public int Salary;
 
         //Constructor
-        public Employee(string name, int id, string position, string salary)
+        public Employee(string name, int id, string position, int salary)
         {
             Name = name;
             Id = id;
@@ -25,13 +25,19 @@ namespace TaskEmployee
         {
             if(Salary < employee.Salary)
             {
-                Console.WriteLine($"{Employee.Name} palkka on pienempi kuin henkilön {employee.Name} palkka");
+                Console.WriteLine($"\n{employee.Name} palkka on isompi kuin henkilön {Name} palkka");
             }
             else
             {
-                Console.WriteLine($"{employee.Name} palkka on pienempi kuin henkilön {Employee.Name} palkka);
+                Console.WriteLine($"\n{Name} palkka on isompi kuin henkilön {employee.Name} palkka");
             }
-
+        }
+        public void PrintEmployeeInfo()
+        {
+            Console.WriteLine($"\nTyöntekijän nimi: {Name}" +
+                $"\nTyöntekijän tunnus: {Id}" +
+                $"\nTyöntekijän asema{Position}" +
+                $"\nTyöntekijän palkka: {Salary:C}");
         }
     }
 }
