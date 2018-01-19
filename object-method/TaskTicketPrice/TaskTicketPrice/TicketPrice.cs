@@ -8,22 +8,22 @@ namespace TaskTicketPrice
     {
         //Fields
         public int Age;
-        public bool Mtk;
+        public bool isMtk;
         public int NormalPrice;
         public decimal EndPrice;
         public int Discount;
-        public bool Soldier;
-        public bool Student;
+        public bool isSoldier;
+        public bool isStudent;
 
         //constructor
         public TicketPrice()
         {
             Age = 0;
-            Mtk = false;
+            isMtk = false;
             NormalPrice = 16;
             EndPrice = 0;
-            Soldier = false;
-            Student = false;
+            isSoldier = false;
+            isStudent = false;
             Discount = 0;
         }
 
@@ -33,18 +33,32 @@ namespace TaskTicketPrice
             Console.WriteLine("Tervetuloa! Lasketaanpa lippusi hinta\n");
             Console.WriteLine("Anna ikäsi");
             Age = Console.Read();
-            Console.WriteLine("Oletko Mtk:n jäsen?");
-            Mtk = bool.Parse(Console.ReadLine().ToUpper());
-            Console.WriteLine("Oletko varusmies? Y/N");
-            Soldier = bool.Parse(Console.ReadLine().ToUpper());
-            Console.WriteLine("Oletko Opiskelija Y/N");
-            Student = bool.Parse(Console.ReadLine().ToUpper());
+            //Console.WriteLine("Oletko Mtk:n jäsen?");
+            //Mtk = bool.Parse(Console.ReadLine().ToUpper());
+            //Console.WriteLine("Oletko varusmies? Y/N");
+            //Soldier = bool.Parse(Console.ReadLine().ToUpper());
+            //Console.WriteLine("Oletko Opiskelija Y/N");
+            //Student = bool.Parse(Console.ReadLine().ToUpper());
+            isMtk = Answer("MTK:n jäsen");
+            isSoldier = Answer("Varusmies");
+            isStudent = Answer("Opiskelija");
+
+        }
+        public bool Answer(string msg)
+        {
+            Console.WriteLine($"Oletko {msg} Y/N");
+            string ans = Console.ReadLine().ToUpper();
+
+            if (ans == "Y")
+                return true;
+            else
+                return false;
+
         }
 
         public void PriceCount()
         {
-            bool y = true;
-            y = bool.Parse("Y");
+           
             //Ikä
             if(Age < 7)
             {
@@ -64,43 +78,43 @@ namespace TaskTicketPrice
             }
 
             //MTK
-            if(Mtk == true)
+            if(isMtk == true)
             {
                 Discount = 15;
             }
-            else if(Mtk == false)
+            else if(isMtk == false)
             {
                 Discount = 0;
             }
 
             //Sotilas
-            if (Soldier == true)
+            if (isSoldier == true)
             {
                 Discount = 50;
             }
-            else if (Soldier == false && Mtk == true)
+            else if (isSoldier == false && isMtk == true)
             {
                 Discount = 15;
             }
-            else if(Soldier == true && Student == true && Mtk == true)
+            else if(isSoldier == true && isStudent == true && isMtk == true)
             {
                 Discount = 50;
             }
-            else if(Soldier == false)
+            else if(isSoldier == false)
             {
                 Discount = 0;
             }
             
             //Opiskelija
-            if (Student == true)
+            if (isStudent == true)
             {
                 Discount = 45;
             }
-            else if(Student == true && Mtk == true)
+            else if(isStudent == true && isMtk == true)
             {
                 Discount = 60;
             }
-            else if (Student == false)
+            else if (isStudent == false)
             {
                 Discount = 0;
             }
