@@ -6,7 +6,12 @@ namespace TaskTicketPrice
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
+            TicketPrice person1 = new TicketPrice();
+            person1.Data();
+            person1.PriceCount();
+
+            Console.ReadLine();
         }
     }
 }
