@@ -31,14 +31,8 @@ namespace TaskTicketPrice
         public void Data()
         {
             Console.WriteLine("Tervetuloa! Lasketaanpa lippusi hinta\n");
-            Console.WriteLine("Anna ikäsi");
-            Age = Console.Read();
-            //Console.WriteLine("Oletko Mtk:n jäsen?");
-            //Mtk = bool.Parse(Console.ReadLine().ToUpper());
-            //Console.WriteLine("Oletko varusmies? Y/N");
-            //Soldier = bool.Parse(Console.ReadLine().ToUpper());
-            //Console.WriteLine("Oletko Opiskelija Y/N");
-            //Student = bool.Parse(Console.ReadLine().ToUpper());
+            Console.Write("Anna ikäsi: ");
+            Age = int.Parse(Console.ReadLine());
             isMtk = Answer("MTK:n jäsen");
             isSoldier = Answer("Varusmies");
             isStudent = Answer("Opiskelija");
@@ -46,14 +40,13 @@ namespace TaskTicketPrice
         }
         public bool Answer(string msg)
         {
-            Console.WriteLine($"Oletko {msg} Y/N");
+            Console.Write($"Oletko {msg} Y/N: ");
             string ans = Console.ReadLine().ToUpper();
 
             if (ans == "Y")
                 return true;
-            else
+            else 
                 return false;
-
         }
 
         public void PriceCount()
@@ -68,59 +61,40 @@ namespace TaskTicketPrice
             {
                 Discount = 50;
             }
-            else if(Age >= 65 )
+            else if(Age >= 65)
             {
                 Discount = 50;
             }
-            else
-            {
-                Discount = 0;
-            }
+         
 
             //MTK
-            if(isMtk == true)
+            if(isMtk)
             {
                 Discount = 15;
-            }
-            else if(isMtk == false)
-            {
-                Discount = 0;
-            }
-
-            //Sotilas
-            if (isSoldier == true)
-            {
-                Discount = 50;
-            }
-            else if (isSoldier == false && isMtk == true)
-            {
-                Discount = 15;
-            }
-            else if(isSoldier == true && isStudent == true && isMtk == true)
-            {
-                Discount = 50;
-            }
-            else if(isSoldier == false)
-            {
-                Discount = 0;
             }
             
+
+            //Sotilas
+            if (isSoldier)
+            {
+                Discount = 50;
+            }
+          
+            
             //Opiskelija
-            if (isStudent == true)
+            if (isStudent)
             {
                 Discount = 45;
             }
-            else if(isStudent == true && isMtk == true)
+
+            if (isStudent && isMtk)
             {
                 Discount = 60;
             }
-            else if (isStudent == false)
-            {
-                Discount = 0;
-            }
+      
            
             EndPrice = (NormalPrice - (NormalPrice * Convert.ToDecimal(Discount / 100m)));
-            Console.WriteLine($"Lippusi hinta on: {EndPrice:C} ");
+            Console.WriteLine($"Lippusi hinta on: {EndPrice:C}");
         
         }
     }
