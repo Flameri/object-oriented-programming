@@ -8,45 +8,55 @@ namespace TaskBookWriter
     {
         //FIelds
         public string Name;
+        public string Writer;
         public string Publisher;
-        public double Price;
+        private double price;
         public static string ThemeName;
 
 
         //Constructor
-        public Book()
-        {
-            Name = "";
-            Publisher = "";
-            Price = 0;
-            ThemeName = "";
-        }
-
-        public Book(string name, string publisher, double price, string themename)
+        public Book(string name, string writer, string publisher, double price, string themename)
         {
             Name = name;
+            Writer = "Dan Brown";
             Publisher = publisher;
-            Price = price;
+            price = Price;
             ThemeName = themename;
         }
 
         //Methods
         public void GetBook(string name)
         {
-            //Console.WriteLine("Anna etsimäsi kirjan nimi");
-            //name = Console.ReadLine();
             if (this.Name == name)
             {
                 Console.WriteLine($"{Name}, {Publisher}, {Price:C}, {ThemeName}");
             }
             else
             {
-                Console.WriteLine("Kirjaa ei löytynyt");
+                Console.WriteLine($"Hait kirjaa {name}. Kirjaa ei löytynyt\n");
             }
         }
-        public static void  ChangeTheme(string theme)
+        public static void ChangeTheme(string theme)
         {
             ThemeName = theme;
         }
+        public double Price
+        {
+            get
+            {
+                return price;
+            }
+            set
+            {
+                if (value > 30)
+                {
+                    price = value * 0.9;
+                }
+
+            }
+        }
     }
 }
+    
+
+
