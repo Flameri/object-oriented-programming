@@ -1,7 +1,10 @@
-﻿using System;
+﻿using Literature.TaskBookWriter;
+using System;
+using TaskBookWriter;
+
 
 namespace TaskBookWriter
-{
+{ 
     class Program
     {
         static void Main(string[] args)
@@ -20,9 +23,10 @@ namespace TaskBookWriter
             book2.GetBook("pellavapää");
             book2.Price = 40;
 
-           
-
             Console.WriteLine($"\n{book2.Name} kirjan uusi hinta on: {book2.Price:C}");
+
+            Author author1 = new Author("Dan Brown","10.01.1950 ",book1);
+            author1.PrintInfo();
 
 
             Console.ReadKey();
