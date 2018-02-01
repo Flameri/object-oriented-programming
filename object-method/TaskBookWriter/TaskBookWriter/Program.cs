@@ -14,10 +14,15 @@ namespace TaskBookWriter
 
             Book book2 = new Book("Digimonit", "Jukka Päätalo", "Otava", 29.90, "Jännitys\n");
             book2.GetBook("Digimonit");
+            Console.WriteLine($"\n{book2.Name} kirjoittaja on: {book2.Author}");
+            Console.WriteLine($"\n{book1.Name} kirjoittaja on: {book1.Author}\n");
+
             book2.GetBook("pellavapää");
             book2.Price = 40;
 
-            Console.WriteLine($"Uusi hinta on: {book2.Price:C}");
+           
+
+            Console.WriteLine($"\n{book2.Name} kirjan uusi hinta on: {book2.Price:C}");
 
 
             Console.ReadKey();

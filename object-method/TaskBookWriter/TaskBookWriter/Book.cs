@@ -18,7 +18,7 @@ namespace TaskBookWriter
         public Book(string name, string writer, string publisher, double price, string themename)
         {
             Name = name;
-            Writer = "Dan Brown";
+            Writer = writer;
             Publisher = publisher;
             price = Price;
             ThemeName = themename;
@@ -29,11 +29,11 @@ namespace TaskBookWriter
         {
             if (this.Name == name)
             {
-                Console.WriteLine($"{Name}, {Publisher}, {Price:C}, {ThemeName}");
+                Console.WriteLine($"{Name}\n{Publisher}\n{Price:C}\n{ThemeName}");
             }
             else
             {
-                Console.WriteLine($"Hait kirjaa {name}. Kirjaa ei löytynyt\n");
+                Console.Write($"Hait kirjaa {name}. Kirjaa ei löytynyt");
             }
         }
         public static void ChangeTheme(string theme)
@@ -52,7 +52,13 @@ namespace TaskBookWriter
                 {
                     price = value * 0.9;
                 }
-
+            }
+        }
+        public string Author
+        {
+            get
+            {
+                return Writer;
             }
         }
     }
