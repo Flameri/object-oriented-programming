@@ -30,25 +30,4 @@ namespace TaskInheritance
                 $"{Price:C}");
         }
     }
-    class Car : Transportation
-    {
-        //Fields
-        protected double MotorSize;
-        protected string Brand;
-        protected int Doors;
-
-        public Car(string type, string model, int year, double price,double motorsize, string brand, int doors) : base(type, model, year, price)
-        {
-            MotorSize = motorsize;
-            Brand = brand;
-            Doors = doors;
-        }
-
-        //override method
-        public override void PrintInfo()
-        {
-            base.PrintInfo();
-            Console.WriteLine($"{MotorSize}\n{Brand}\n{Doors}");
-        }
-    }
 }
