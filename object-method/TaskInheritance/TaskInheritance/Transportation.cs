@@ -4,7 +4,7 @@ using System.Text;
 
 namespace TaskInheritance
 {
-    class Transportation
+    abstract class Transportation
     {
         //fields
         protected string Type;
@@ -22,12 +22,6 @@ namespace TaskInheritance
         }
 
         //methods
-        virtual public void PrintInfo()
-        {
-            Console.WriteLine($"\n{Type}" +
-                $"\n{Model}" +
-                $"\n{Year}\n" +
-                $"{Price:C}");
-        }
+        abstract public void PrintInfo();
     }
 }

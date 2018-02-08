@@ -19,16 +19,20 @@ namespace TaskInheritance
             Doors = doors;
         }
 
+        //Ccnstructor
+        public Car(string type, string model, int year, double price) : base(type, model, year, price)
+        {
+        }
+
         //override method
         public override void PrintInfo()
         {
-            base.PrintInfo();
-            Console.WriteLine($"{MotorSize}\n{Brand}\n{Doors}");
+            Console.WriteLine($" Motor: {MotorSize}\nBrand: {Brand}\nDoors: {Doors}\nType: {Type}\nModel: {Model}\nYear: {Year}\nPrice: {Price:C}");
         }
         //override Tostring
         public override string ToString()
         {
-            return ($"\n{MotorSize}\n{Brand}\n{Doors}");
+            return ($"\n{MotorSize}\n{Brand}\n{Doors}\n");
         }
         //override Equals
         public override bool Equals(object obj)
@@ -39,5 +43,6 @@ namespace TaskInheritance
             else
                 return Model.Equals(carObj.Model);
         }
+
     }
 }

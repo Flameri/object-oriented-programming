@@ -7,7 +7,7 @@ namespace TaskInheritance
         static void Main(string[] args)
         {
             Console.OutputEncoding = System.Text.Encoding.UTF8;
-            Transportation car1 = new Transportation("Farmari", "Volvo", 2000, 4000);
+            Transportation car1 = new Car("Farmari", "Volvo", 2000, 4000);
             
             car1.PrintInfo();
 

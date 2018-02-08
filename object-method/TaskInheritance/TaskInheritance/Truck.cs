@@ -15,7 +15,6 @@ namespace TaskInheritance
         {
             HaulWeight = haulweight;
             UsageKg = usagekg;
-
         }
 
         public string CalcCons()
