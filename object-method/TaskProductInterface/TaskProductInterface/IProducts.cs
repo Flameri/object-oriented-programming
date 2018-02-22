@@ -8,7 +8,7 @@ namespace TaskProductInterface
 {
     interface IProducts
     {
-        void AddProducts(Product product);
+        void AddProducts (List<Product> product);
         void PrintProducts();
     }
 }

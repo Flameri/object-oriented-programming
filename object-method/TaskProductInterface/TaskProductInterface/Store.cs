@@ -10,17 +10,17 @@ namespace TaskProductInterface
     {
         //Fields
         public string Name;
-        public double Turnover;
+        public string Turnover;
         public List<Product> products;
         public List<Customer> customers;
 
         //Constructor
-        public Store(string name, double turnover, List<Product> products, List<Customer> customers)
+        public Store(string name, string turnover)
         {
             Name = name;
             Turnover = turnover;
-            this.products = products;
-            this.customers = customers;
+            List<Customer> customers = new List<Customer>();
+            List<Product> products = new List<Product>();
         }
 
         //Override ToString
@@ -29,23 +29,30 @@ namespace TaskProductInterface
             return ($"\n{Name}\n{Turnover:C}\n");
         }
         //Interface ICustomer methods
-        public void AddCustomer(Customer customer)
+        public void AddCustomer(List<Customer> customer)
         {
-            customers.Add(customer);
+            customers = customer ;
         }
         public void PrintCustomers()
         {
-            Console.WriteLine($"{customers}");
+            foreach (Customer c in customers)
+            { 
+                Console.WriteLine($" {c.ToString()}");
+                c.CalculateBonus();
+            }
         }
         //INterface IProducts methods
-        public void AddProducts(Product product)
+        public void AddProducts(List<Product> product)
         {
-            products.Add(product);
-            
+            products = product;
         }
         public void PrintProducts()
         {
-            Console.WriteLine($"{products.Count} {products}");
+            foreach (Product p in products)
+            {
+                Console.WriteLine($"{p.ToString()}");
+                p.CalculateTotal();
+            }
         }
     }
 }

@@ -8,7 +8,7 @@ namespace TaskProductInterface
 {
     interface ICustomers
     {
-        void AddCustomer(Customer customer);
+        void AddCustomer(List<Customer> customer);
         void PrintCustomers();
     }
 }
