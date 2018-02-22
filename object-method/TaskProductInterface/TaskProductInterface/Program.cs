@@ -8,6 +8,9 @@ namespace TaskProductInterface
 {
     class Program
     {
+        private static readonly List<Product> listproducts;
+        private static List<Customer> listcustomers;
+
         static void Main(string[] args)
         {
             Console.OutputEncoding = System.Text.Encoding.UTF8;
@@ -42,6 +45,9 @@ namespace TaskProductInterface
             customers[1].CalculateBonus();
             customers[2].GetCustomer();
             customers[2].CalculateBonus();
+
+            Store store = new Store("Valintatalo", 30000000, listproducts, listcustomers);
+            
             Console.ReadKey();
         }
     }
