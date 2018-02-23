@@ -24,7 +24,9 @@ namespace TaskProductInterface
         //Override ToString
         public override string ToString()
         {
-            return ($"\n{Name}\n{Price}\n{Count}\n");
+            return ($"\nTuote: {Name}" +
+                $"\nTuotteen hinta: {Price:C}" +
+                $"\nTuotteiden yhteismäärä: {Count}");
         }
 
         //Interface Methods
@@ -44,7 +46,8 @@ namespace TaskProductInterface
         public void CalculateTotal()
         {
             double Total = Price * Count;
-            Console.WriteLine($"Yhteisarvo on: {Total}");
+            Console.WriteLine($"Yhteisarvo on: {Total:C}\n");
+            Console.WriteLine(new string('-', 25)); 
         }
     }
 }

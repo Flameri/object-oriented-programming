@@ -40,6 +40,9 @@ namespace TaskProductInterface
                 Console.WriteLine($" {c.ToString()}");
                 c.CalculateBonus();
             }
+            Console.WriteLine($"Asiakkaat listalla:" +
+                $" {customers.Count()}");
+            Console.WriteLine(new string('-',25));
         }
         //INterface IProducts methods
         public void AddProducts(List<Product> product)
@@ -53,6 +56,9 @@ namespace TaskProductInterface
                 Console.WriteLine($"{p.ToString()}");
                 p.CalculateTotal();
             }
+            Console.WriteLine($"Tuotteita listalla:" +
+                $" {products.Count()}");
+            Console.WriteLine(new string('-', 25));
         }
     }
 }

@@ -21,7 +21,8 @@ namespace TaskProductInterface
         //Override ToString
         public override string ToString()
         {
-            return ($"\n{Name}\n{Groceries}\n");
+            return ($"\nAsiakkaan nimi: {Name}" +
+                $"\nOstoksia yhteensä: {Groceries:C}");
         }
 
         //ICustomer methods
@@ -43,17 +44,20 @@ namespace TaskProductInterface
             if(Groceries <= 1000)
             {
                 Total = Groceries * 0.02;
-                Console.WriteLine($"Bonus on 2%: {Total}");
+                Console.WriteLine($"Bonus on 2%: {Total:C}\n");
+                Console.WriteLine(new string('-', 25));
             }
             else if (Groceries > 1000 && Groceries < 200)
             {
                 Total = Groceries * 0.03;
-                Console.WriteLine($"Bonus on 3%: {Total}");
+                Console.WriteLine($"Bonus on 3%: {Total:C}\n");
+                Console.WriteLine(new string('-', 25));
             }
             else
             {
                 Total = Groceries * 0.05;
-                Console.WriteLine($"Bonus on 5%: {Total}");
+                Console.WriteLine($"Bonus on 5%: {Total:C}\n");
+                Console.WriteLine(new string('-', 25));
             }
 
         }
