@@ -59,7 +59,6 @@ namespace TaskProductInterface
                 Console.WriteLine($"Bonus on 5%: {Total:C}\n");
                 Console.WriteLine(new string('-', 25));
             }
-
         }
     }
 }
